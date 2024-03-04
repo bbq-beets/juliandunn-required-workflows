@@ -1,11 +1,10 @@
-# This is a basic workflow to help you get started with Actions
+# Required license check to impose on Node repositories
 
 name: required-license-check
 
 on:
   pull_request:
     branches: [ master ]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -13,7 +12,7 @@ jobs:
 
     steps:
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Check for acceptable licenses
       uses: mikaelvesavuori/license-compliance-action@v1
