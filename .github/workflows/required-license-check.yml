@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: required-license-check
+
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Check for acceptable licenses
+      uses: mikaelvesavuori/license-compliance-action@v1
+      with:
+        allow_licenses: "MIT;Apache-2.0"
